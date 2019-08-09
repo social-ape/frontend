@@ -60,6 +60,7 @@ class login extends Component {
     axios
       .post("/login", userData)
       .then(result => {
+        localStorage.setItem("token", `Bearer ${result.data.token}`);
         this.setState({ loading: false });
         console.log(result.data);
         this.props.history.push("/");
@@ -136,7 +137,7 @@ class login extends Component {
             </Button>
             <br />
             <small>
-              don't have an account? sign up <Link to="/signup">here</Link>{" "}
+              don't have an account? sign up <Link to="/signup">here</Link>
             </small>
           </form>
         </Grid>
