@@ -62,6 +62,16 @@ export const getUserData = () => dispatch => {
     });
 };
 
+export const uploadImage = formData => dispatch => {
+  dispatch({ type: LOADING_USER });
+  axios
+    .post("/user/image", formData)
+    .then(() => {
+      dispatch(getUserData());
+    })
+    .catch(error => console.log(error));
+};
+
 const setAuthHeader = token => {
   const authToken = `Bearer ${token}`;
   localStorage.setItem("token", authToken);
