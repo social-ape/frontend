@@ -72,6 +72,16 @@ export const uploadImage = formData => dispatch => {
     .catch(error => console.log(error));
 };
 
+export const editUserDetails = userDetails => dispatch => {
+  dispatch({ type: LOADING_USER });
+  axios
+    .post("/user", userDetails)
+    .then(() => {
+      dispatch(getUserData());
+    })
+    .catch(err => console.log(err));
+};
+
 const setAuthHeader = token => {
   const authToken = `Bearer ${token}`;
   localStorage.setItem("token", authToken);
