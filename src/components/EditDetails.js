@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
+import MyButton from "../util/MyButton";
+
 import withStyles from "@material-ui/core/styles/withStyles";
-import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -16,14 +16,14 @@ import EditIcon from "@material-ui/icons/Edit";
 import { connect } from "react-redux";
 import { editUserDetails } from "../redux/actions/userActions";
 
-const styles = theme => ({
+const styles = {
   button: {
     float: "right"
   },
   textField: {
     margin: "10px auto 10px auto"
   }
-});
+};
 
 class EditDetails extends Component {
   state = {
@@ -75,11 +75,13 @@ class EditDetails extends Component {
     const { classes } = this.props;
     return (
       <Fragment>
-        <Tooltip title="edit details">
-          <IconButton onClick={this.handleOpen} className={classes.button}>
-            <EditIcon color="primary" />
-          </IconButton>
-        </Tooltip>
+        <MyButton
+          tip="edit details"
+          onClick={this.handleOpen}
+          btnClassName={classes.button}
+        >
+          <EditIcon color="primary" />
+        </MyButton>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
