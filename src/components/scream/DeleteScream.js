@@ -9,10 +9,10 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 
 import DeleteOutline from "@material-ui/icons/DeleteOutline";
 
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 
 import { connect } from "react-redux";
-import { deleteScream } from "../redux/actions/dataActions";
+import { deleteScream } from "../../redux/actions/dataActions";
 
 const styles = {
   deleteButton: {

@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 
 import { connect } from "react-redux";
-import { likeScream, unlikeScream } from "../redux/actions/dataActions";
+import { likeScream, unlikeScream } from "../../redux/actions/dataActions";
 
 class LikeButton extends Component {
   likedScream = () => {

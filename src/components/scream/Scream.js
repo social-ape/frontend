@@ -12,7 +12,7 @@ import ChatIcon from "@material-ui/icons/Chat";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 import DeleteScream from "./DeleteScream";
 import ScreamDialog from "./ScreamDialog";
 import LikeButton from "./LikeButton";
