@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import MyButton from "../../util/MyButton";
 import LikeButton from "./LikeButton";
+import CommentButton from "./CommentButton";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import Dialog from "@material-ui/core/Dialog";
@@ -24,6 +25,10 @@ const styles = {
   invisibleSeparator: {
     border: "none",
     margin: 4
+  },
+  visibleSeparator: {
+    width: "100%",
+    borderBottom: "1px solid rgba(0,0,0,0.1)"
   },
   profileImage: {
     maxWidth: 200,
@@ -71,7 +76,8 @@ class ScreamDialog extends Component {
         userImage,
         screamId,
         likeCount,
-        commentCount
+        commentCount,
+        comments
       },
       UI: { loading }
     } = this.props;
@@ -107,6 +113,8 @@ class ScreamDialog extends Component {
           </MyButton>
           <span>{commentCount} comments</span>
         </Grid>
+        <hr className={classes.visibleSeparator} />
+        <CommentButton comments={comments} />
       </Grid>
     );
     return (
