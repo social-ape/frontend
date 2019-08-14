@@ -4,6 +4,7 @@ import {
   LIKE_SCREAM,
   UNLIKE_SCREAM,
   DELETE_SCREAM,
+  SUBMIT_COMMENT,
   LOADING_UI,
   SET_ERRORS,
   CLEAR_ERRORS,
@@ -61,9 +62,25 @@ export const postScream = newScream => dispatch => {
     .post("/scream", newScream)
     .then(res => {
       dispatch({ type: POST_SCREAM, payload: res.data });
-      dispatch({ type: CLEAR_ERRORS });
+      dispatch(clearErrors());
     })
     .catch(err => {
       dispatch({ type: SET_ERRORS, payload: err.response.data });
     });
+};
+
+export const submitComment = (screamId, commentData) => dispatch => {
+  axios
+    .post(`/scream/${screamId}/comment`, commentData)
+    .then(res => {
+      dispatch({ type: SUBMIT_COMMENT, payload: res.data });
+      dispatch(clearErrors());
+    })
+    .catch(err => {
+      dispatch({ type: SET_ERRORS, payload: err.response.data });
+    });
+};
+
+export const clearErrors = () => dispatch => {
+  dispatch({ type: CLEAR_ERRORS });
 };
