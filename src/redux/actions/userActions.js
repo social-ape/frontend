@@ -4,7 +4,8 @@ import {
   CLEAR_ERRORS,
   LOADING_UI,
   LOADING_USER,
-  SET_UNAUTHENTICATED
+  SET_UNAUTHENTICATED,
+  MARK_NOTIFICATIONS_READ
 } from "../types";
 import axios from "axios";
 
@@ -86,4 +87,13 @@ const setAuthHeader = token => {
   const authToken = `Bearer ${token}`;
   localStorage.setItem("token", authToken);
   axios.defaults.headers.common["Authorization"] = authToken;
+};
+
+export const markNotificationsRead = notificationsIds => dispatch => {
+  axios
+    .post("/notifications", notificationsIds)
+    .then(res => {
+      dispatch({ type: MARK_NOTIFICATIONS_READ });
+    })
+    .catch(err => console.log(err));
 };
