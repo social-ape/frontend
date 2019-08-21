@@ -42,7 +42,9 @@ const theme = createMuiTheme({
   }
 });
 
-// only temporary solutions, will make it better
+axios.defaults.baseURL =
+  "https://us-central1-socialape-2db87.cloudfunctions.net/api";
+
 const token = localStorage.token;
 if (token) {
   const decodedToken = jwtDecode(token);
