@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 
 import EditDetails from "./EditDetails";
 import MyButton from "../../util/MyButton";
+import ProfileSkeleton from "../../util/ProfileSkeleton";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import Button from "@material-ui/core/Button";
@@ -186,7 +187,7 @@ class Profile extends Component {
         );
       }
     } else {
-      profileMarkup = <p>loading ...</p>;
+      profileMarkup = <ProfileSkeleton />;
     }
     return profileMarkup;
   }
